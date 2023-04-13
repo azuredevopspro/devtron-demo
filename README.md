@@ -1,4 +1,4 @@
-# argo-gitops
+# AKS devtron Demo
 
 This repo uses following secrets for deploying and configuring resources on Azure using Github actions workflow
 
