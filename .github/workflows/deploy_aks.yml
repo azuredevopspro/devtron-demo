@@ -52,9 +52,11 @@ jobs:
           # AKS Cluster Subscription
           subscription: ${{secrets.ADP_AZ_SUBS_WE_01_ID}}
           # Get cluster admin credentials. Values: true or false
-          admin: 'true'           
-      - name: Helm tool installer
-        uses: Azure/setup-helm@v3
-        with:
-          # Version of helm
-          version: 3
+          admin: 'true'
+      - name: Install devtron via helm
+        run: |
+          helm repo add devtron https://helm.devtron.ai
+          helm install devtron devtron/devtron-operator \
+          --create-namespace --namespace devtroncd \
+          --set installer.modules={cicd} \
+          --set argo-cd.enabled=true
