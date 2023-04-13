@@ -1,0 +1,44 @@
+# Deploys K8s cluster from K8s main.bicep
+
+name: 1 Deploy AKS
+
+# Controls when the workflow will run
+on:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+   inputs:
+    clusterName:
+      description: 'Cluster Name'
+      required: true
+      default: 'aks-demo-01'
+    clusterLocation:
+      description: 'azure region'
+      required: true
+      default: 'eastus'
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "Deploy"
+  Deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+          creds: ${{secrets.ADP_AZ_SUBS_WE_01_CRED}}
+                
+      - name: Deploy bicep
+        uses: Azure/cli@v1
+        with:
+          # Specify the script here
+          inlineScript: |
+           az account set --subscription ${{secrets.ADP_AZ_SUBS_WE_01_ID}}
+           az deployment sub create --location eastus --template-file '.\aks\main.bicep' --parameters clusterName=${{ inputs.clusterName }} clusterLocation=${{ inputs.clusterLocation }} clusterAdminGroupId=${{ secrets.ADP_AKS_ADMIN_GROUP_ID }} --name 'az-k8s-deploy-'$(date +"%d-%b-%Y-%Hh-%Mm-%Ss")
