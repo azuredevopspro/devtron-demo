@@ -60,8 +60,5 @@ jobs:
           --create-namespace --namespace devtroncd \
           --set installer.modules={cicd} \
           --set argo-cd.enabled=true
-          --set security.enabled=true \
-          --set monitoring.grafana.enabled=true \
-          --set notifier.enabled=true
           
           
