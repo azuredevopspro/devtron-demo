@@ -60,3 +60,5 @@ jobs:
           --create-namespace --namespace devtroncd \
           --set installer.modules={cicd} \
           --set argo-cd.enabled=true
+          
+          
