@@ -1,3 +1,5 @@
+#Sample Multi Stage Docker File
+
 FROM microsoft/aspnetcore:2.0 AS base
 WORKDIR /app
 EXPOSE 80
