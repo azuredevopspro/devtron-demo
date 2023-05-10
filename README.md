@@ -26,7 +26,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 **ADP_AKS_ADMIN_GROUP_ID** - Azure AD group id to be set as K8s cluster administrator.
 ## Deploying AKS
-Run Pipleine [Deploy AKS](https://github.com/azuredevopspro/devtron-demo/actions/workflows/deploy_aks.yml)
+Run Pipeline [Deploy AKS](https://github.com/azuredevopspro/devtron-demo/actions/workflows/deploy_aks.yml)
 This pipeline will deploy AKS in Azure and install Devtron.
 ## Deploy Apps to AKS using Devtron
 TODO:
