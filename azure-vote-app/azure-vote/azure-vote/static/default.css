@@ -24,6 +24,15 @@ div#logo {
     /*border-bottom: 1px solid black;*/   
 }
 
+div#desc {
+    display:block;
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+    font-size:35px;
+    font-family:Helvetica;  
+    /*border-bottom: 1px solid black;*/   
+}
 div#form {
     padding: 20px;
     padding-right: 20px;

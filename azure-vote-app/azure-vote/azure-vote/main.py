@@ -25,6 +25,11 @@ if ("TITLE" in os.environ and os.environ['TITLE']):
 else:
     title = app.config['TITLE']
 
+if ("DESC" in os.environ and os.environ['DESC']):
+    desc = os.environ['DESC']
+else:
+    desc = app.config['DESC']
+
 # Redis configurations
 redis_server = os.environ['REDIS']
 
