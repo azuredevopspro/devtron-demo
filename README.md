@@ -1,5 +1,5 @@
 # AKS devtron Demo
-
+## Azure Setup
 This repo uses following secrets for deploying and configuring resources on Azure using Github actions workflow
 
 **ADP_AZ_SUBS_WE_01_CRED** - This is service principal json object for login to azure.
@@ -25,3 +25,8 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 **ADP_AZ_SUBS_WE_01_ID** - Subscription ID where resources will be deployed
 
 **ADP_AKS_ADMIN_GROUP_ID** - Azure AD group id to be set as K8s cluster administrator.
+## Deploying AKS
+Run Pipleine [Deploy AKS](https://github.com/azuredevopspro/devtron-demo/actions/workflows/deploy_aks.yml)
+This pipeline will deploy AKS in Azure and install Devtron.
+## Deploy Apps to AKS using Devtron
+TODO:
